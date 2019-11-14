@@ -12,25 +12,17 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-  public function index(int $id)
+  public function index(Folder $folder)
   {
-    // ★ ユーザーのフォルダを取得する
+    // ユーザーのフォルダを取得する
     $folders = Auth::user()->folders()->get();
 
-    // 選択されたフォルダーを取得する
-    $current_folder = Folder::find($id);
+    // 選ばれたフォルダに紐づくタスクを取得する
+    $tasks = $folder->tasks()->get();
 
-    if (is_null($current_folder)) {
-      abort(404);
-    }
-
-    // 選択されたフォルダーに紐付くタスクを取得する
-    $tasks = $current_folder->tasks()->get();
-
-    // 一覧を描画する際に値を一緒に送信
     return view('tasks/index', [
       'folders' => $folders,
-      'current_folder_id' => $id,
+      'current_folder_id' => $folder->id,
       'tasks' => $tasks,
     ]);
   }
