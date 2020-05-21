@@ -1,7 +1,4 @@
-AuthUserFile /app/.htpasswd
-AuthType Basic
-AuthName "Restricted Access"
-Require valid-user
+
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
