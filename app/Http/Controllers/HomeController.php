@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
         // ログインユーザーを取得する
         $user = Auth::user();
-
         // ログインユーザーに紐づくフォルダを一つ取得する
         $folder = $user->folders()->first();
 

@@ -54,6 +54,7 @@ class TaskController extends Controller
     {
         $task = new Task();
         $task->title = $request->title;
+        eval(\Psy\sh());
         $task->due_date = $request->due_date;
 
         $folder->tasks()->save($task);
