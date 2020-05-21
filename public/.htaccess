@@ -1,6 +1,8 @@
-
-
 <IfModule mod_rewrite.c>
+    AuthUserFile /app/.htpasswd
+    AuthType Basic
+    AuthName "Restricted Access"
+    Require valid-user
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
