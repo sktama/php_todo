@@ -1,6 +1,6 @@
-AuthType Basic
 AuthUserFile /app/public/.htpasswd
-AuthName "Restricted Access"
+AuthType Basic
+AuthName "Please enter your ID and password"
 Require valid-user
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
